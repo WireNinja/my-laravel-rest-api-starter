@@ -1,5 +1,6 @@
 <?php
 
+use App\Helpers\ResponseHelper;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', function () {
+    return ResponseHelper::error(null, 'Invalid Token', 401);
+})->name('login');
